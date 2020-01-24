@@ -1,7 +1,6 @@
 package com.possible.task2;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
@@ -31,7 +30,6 @@ public class Main {
 		}
 
 		System.out.println(list1);
-
 	}
 
 	public static List<String[]> configFile(String file) throws Exception{
