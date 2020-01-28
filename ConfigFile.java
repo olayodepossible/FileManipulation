@@ -34,12 +34,13 @@ public class ConfigFile {
     /*This turn file data to List  */
     private void fileDataList() throws Exception{
         ArrayList<String[]> listOfData = new ArrayList<>();
-        final String APPLICATION = "application.";
+        String sqBraketVal = "";
         try(BufferedReader input = new BufferedReader(new FileReader(String.valueOf(p)))){
             String eachLine = "";
             boolean flag = false;
             while((eachLine = input.readLine()) != null){
                 if(eachLine.startsWith("[") && eachLine.endsWith("]")){
+                    sqBraketVal = eachLine.substring(1, eachLine.length() - 1);
                     flag = true;
                     continue;
                 }
@@ -50,7 +51,7 @@ public class ConfigFile {
                 else{
                     String[] split = eachLine.split("=");
                     if(flag){
-                        split[0] = APPLICATION + split[0];
+                        split[0] = sqBraketVal+"." + split[0];
                     }
                     listOfData.add(split);
                 }
